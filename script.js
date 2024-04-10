@@ -1,22 +1,24 @@
-gsap.to(".nav", {
-  backgroundColor: "black",
-  duration: 0.5,
-  height: "13vh",
-  scrollTrigger: {
-    trigger: ".nav",
-    scroller: "body",
-    start: "top -10%px",
-    end: "top -11%px",
-    scrub: 1,
-  },
-});
-gsap.to(".main", {
-  backgroundColor: "black",
-  scrollTrigger: {
-    trigger: ".main",
-    scroller: "body",
-    start: "top -35%px",
-    end: "top -80%",
-    scrub: 2,
-  },
+document.addEventListener("DOMContentLoaded", function () {
+  const display = document.querySelector("input[name='display']");
+  const buttons = document.querySelectorAll(".btn");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const value = this.value;
+
+      if (value === "=") {
+        try {
+          display.value = eval(display.value);
+        } catch (error) {
+          display.value = "Error";
+        }
+      } else if (value === "AC") {
+        display.value = "";
+      } else if (value === "C") {
+        display.value = display.value.slice(0, -1);
+      } else {
+        display.value += value;
+      }
+    });
+  });
 });
