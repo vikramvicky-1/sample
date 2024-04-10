@@ -1,7 +1,6 @@
 @font-face {
   font-family: Montserrat;
-  src: url("/javascript/practice4/Montserrat-VariableFont_wght.ttf")
-    format("truetype");
+  src: url("/Montserrat-VariableFont_wght.woff") format("truetype");
 }
 * {
   padding: 0px;
